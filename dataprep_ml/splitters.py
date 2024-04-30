@@ -59,10 +59,10 @@ def splitter(
 
     # Final assertions for time series
     if min(len(train), len(dev)) < tss.get('window', 1):
-        raise Exception(f"Dataset size is too small for the specified window size ({tss.get('window')})")
+        raise Exception(f"Dataset size is too small for the specified window size ({tss.get('window', 1)})")
 
     if min(len(train), len(dev), len(test)) < tss.get('horizon', 1):
-        raise Exception(f"Dataset size is too small for the specified horizon size ({tss.get('horizon')})")
+        raise Exception(f"Dataset size is too small for the specified horizon size ({tss.get('horizon', 1)})")
 
     return {"train": train, "test": test, "dev": dev, "stratified_on": stratify_on}
 
